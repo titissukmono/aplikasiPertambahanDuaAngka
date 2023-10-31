@@ -20,6 +20,8 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
         this.setTitle("Aplikasi Pertambahan Dua Angka");
+        
+       
     }
 
     /**
@@ -32,7 +34,7 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     private void initComponents() {
 
         panel1 = new java.awt.Panel();
-        btnTambah = new javax.swing.JButton();
+        btnProses = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
@@ -42,6 +44,8 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         tfhasil = new javax.swing.JTextField();
         tf2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        cbbx = new javax.swing.JComboBox<>();
+        lbl4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -53,10 +57,10 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(153, 255, 204));
         panel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnTambah.setText("Tambah");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+        btnProses.setText("Proses");
+        btnProses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
+                btnProsesActionPerformed(evt);
             }
         });
 
@@ -103,12 +107,26 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 0));
         jLabel1.setText("APLIKASI PERTAMBAHAN  DUA ANGKA");
 
+        cbbx.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/" }));
+        cbbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbxActionPerformed(evt);
+            }
+        });
+
+        lbl4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl4.setText("OPRATOR :");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel1Layout.createSequentialGroup()
@@ -118,19 +136,20 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
                                 .addGap(120, 120, 120)
                                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbl2)
-                                    .addComponent(lbl3))))
+                                    .addComponent(lbl3)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbl4)))
                         .addGap(26, 26, 26)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfhasil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(tfhasil, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(tf2, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(cbbx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnTambah)
+                .addComponent(btnProses)
                 .addGap(18, 18, 18)
                 .addComponent(btnHapus)
                 .addGap(18, 18, 18)
@@ -142,7 +161,11 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
+                .addGap(13, 13, 13)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl1)
                     .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,10 +179,10 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
                     .addComponent(tfhasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
+                    .addComponent(btnProses)
                     .addComponent(btnKeluar)
                     .addComponent(btnHapus))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,7 +193,7 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -220,23 +243,51 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKeluarActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        cbbx.actionPerformed(null);
         tf1.setText("");
         tf2.setText("");
         tfhasil.setText("");
         tf1.requestFocus();
+        
     }//GEN-LAST:event_btnHapusActionPerformed
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+    private void btnProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsesActionPerformed
         int a,b,h;
 
         a=Integer.parseInt(tf1.getText());
         b=Integer.parseInt(tf2.getText());
+        
+        if (cbbx.getSelectedItem().equals("+")) {
+            
+            h=a+b;                      
+            
+            tfhasil.setText(Integer.toString(h));
+        }
+        if (cbbx.getSelectedItem().equals("-")) {
+            
+            h=a-b;
+            tfhasil.setText(Integer.toString(h));
+            
+        }
+        if (cbbx.getSelectedItem().equals("*")) {
+            h=a*b;
+            tfhasil.setText(Integer.toString(h));
+            
+        }
+        if (cbbx.getSelectedItem().equals("/")) {
+            double ap,ak,hs;
+            ap=Double.parseDouble(tf1.getText());
+            ak=Double.parseDouble(tf2.getText());
+            
+            hs=ap/ak;
+            tfhasil.setText(Double.toString(hs));
+        }
 
-        h=a+b;
+    }//GEN-LAST:event_btnProsesActionPerformed
 
-        tfhasil.setText(String.valueOf(h));
-
-    }//GEN-LAST:event_btnTambahActionPerformed
+    private void cbbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,11 +327,13 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnKeluar;
-    private javax.swing.JButton btnTambah;
+    private javax.swing.JButton btnProses;
+    private javax.swing.JComboBox<String> cbbx;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
     private java.awt.Panel panel1;
     private javax.swing.JTextField tf1;
     private javax.swing.JTextField tf2;
