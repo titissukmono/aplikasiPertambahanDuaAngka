@@ -19,6 +19,7 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     public aplikasiPertambahanDuaAngka() {
         initComponents();
         setLocationRelativeTo(this);
+        this.setTitle("Aplikasi Pertambahan Dua Angka");
     }
 
     /**
