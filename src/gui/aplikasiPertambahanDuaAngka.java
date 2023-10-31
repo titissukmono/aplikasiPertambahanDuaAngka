@@ -109,12 +109,16 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl1)
-                            .addComponent(lbl3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(lbl1))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl2)
+                                    .addComponent(lbl3))))
+                        .addGap(26, 26, 26)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfhasil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,6 +175,49 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+      
+    }//GEN-LAST:event_formWindowActivated
+
+    private void tf2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf2KeyTyped
+        char c= evt.getKeyChar();
+        if(! ((Character.isDigit(c)) ||
+            ( c== KeyEvent.VK_BACK_SPACE)
+            || (c== KeyEvent.VK_DELETE)
+        ))
+        {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "masukan anga 1-9");
+            evt.consume();
+        }
+    }//GEN-LAST:event_tf2KeyTyped
+
+    private void tf1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf1KeyTyped
+        char c= evt.getKeyChar();
+        if(! ((Character.isDigit(c)) ||
+            ( c== KeyEvent.VK_BACK_SPACE)
+            || (c== KeyEvent.VK_DELETE)
+        ))
+        {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "masukan angka 1-9");
+            evt.consume();
+        }
+    }//GEN-LAST:event_tf1KeyTyped
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+
+        int respon = JOptionPane.showConfirmDialog(this,"apakah anda yakin untuk keluar","konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE );
+        if (respon==JOptionPane.YES_OPTION) {
+            System.exit(0);
+
+        }
+        else{
+            //            JOptionPane.showMessageDialog(null, "oke");
+        }
+
+    }//GEN-LAST:event_btnKeluarActionPerformed
+
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         tf1.setText("");
         tf2.setText("");
@@ -179,59 +226,16 @@ public class aplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-       int a,b,h;
-       
-       a=Integer.parseInt(tf1.getText());
-       b=Integer.parseInt(tf2.getText());
-       
+        int a,b,h;
+
+        a=Integer.parseInt(tf1.getText());
+        b=Integer.parseInt(tf2.getText());
+
         h=a+b;
-        
+
         tfhasil.setText(String.valueOf(h));
-       
+
     }//GEN-LAST:event_btnTambahActionPerformed
-
-    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
-      
-     int respon = JOptionPane.showConfirmDialog(this,"apakah anda yakin untuk keluar","konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE );
-        if (respon==JOptionPane.YES_OPTION) {
-            System.exit(0);
-            
-        }
-        else{
-//            JOptionPane.showMessageDialog(null, "oke");
-        }
- 
-    }//GEN-LAST:event_btnKeluarActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-      
-    }//GEN-LAST:event_formWindowActivated
-
-    private void tf1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf1KeyTyped
-        char c= evt.getKeyChar();
-        if(! ((Character.isDigit(c)) ||
-        ( c== KeyEvent.VK_BACK_SPACE)
-         || (c== KeyEvent.VK_DELETE)
-                ))
-                {
-                    getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "masukan angka 1-9");
-                    evt.consume();
-        }
-    }//GEN-LAST:event_tf1KeyTyped
-
-    private void tf2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf2KeyTyped
-         char c= evt.getKeyChar();
-        if(! ((Character.isDigit(c)) ||
-        ( c== KeyEvent.VK_BACK_SPACE)
-         || (c== KeyEvent.VK_DELETE)
-                ))
-                {
-                    getToolkit().beep();
-                    JOptionPane.showMessageDialog(null, "masukan anga 1-9");
-                    evt.consume();
-        }
-    }//GEN-LAST:event_tf2KeyTyped
 
     /**
      * @param args the command line arguments
